@@ -11,5 +11,8 @@ public class Produto {
 		this.nome = nome;
 	}
 
+	public String toString() {
+		return this.nome;
+	}
 
 }
