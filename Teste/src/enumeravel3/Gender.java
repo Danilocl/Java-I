@@ -2,7 +2,7 @@ package enumeravel3;
 
 public enum Gender {
 
-	FEMALE("f"), MALE("M");
+	 MALE("M"), FEMALE("F");
 
 	private final String value;
 
