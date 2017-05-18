@@ -1,4 +1,4 @@
-package exercicio2;
+package heranca3;
     
 public class Notebook extends Computador {
     
