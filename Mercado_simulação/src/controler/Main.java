@@ -1,0 +1,11 @@
+package controler;
+import Janela.MainFrame;
+
+public class Main {
+	
+	public static void main(String[] args) {
+		
+		new MainFrame();
+		
+	}
+}
