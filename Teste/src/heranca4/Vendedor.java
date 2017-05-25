@@ -1,4 +1,4 @@
-package exercicios1904;
+package heranca4;
 
 public class Vendedor extends Funcionario {
 
