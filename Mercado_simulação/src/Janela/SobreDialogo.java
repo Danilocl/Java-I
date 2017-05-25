@@ -27,7 +27,7 @@ public class SobreDialogo extends JDialog {
 		}
 
 		private void addComponents() {
-			String s = "Programa de Gestão de Clientes - Versão 1.0";
+			String s = "Programa de simulação - Versão beta";
 			JLabel label = new JLabel(s);
 			add(label);
 		}
