@@ -90,7 +90,7 @@ public class SimuladorFinanca extends JDialog {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				dispose();
+				
 			}
 		});
 		add(panel, new GBC(0, 0).both());

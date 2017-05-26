@@ -46,5 +46,9 @@ public class Simulador {
 	public void setPeriodo(int periodo) {
 		this.periodo = periodo;
 	}
+	
+	public void calcula(){
+		
+	}
 
 }

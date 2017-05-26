@@ -4,6 +4,7 @@ import java.awt.Dimension;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.net.URL;
 
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
@@ -33,6 +34,7 @@ public class MainFrame extends JFrame {
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
+		setIconImage();
 
 	}
 
@@ -43,7 +45,7 @@ public class MainFrame extends JFrame {
 
 		JMenu investimentoMenu = new JMenu("Investimento");
 		menuBar.add(investimentoMenu);
-		JMenu sobreMenu = new JMenu("Sobre");
+		JMenu sobreMenu = new JMenu("Tipos");
 		investimentoMenu.add(sobreMenu);
 		JMenu ajudaMenu = new JMenu("Ajuda");
 		menuBar.add(ajudaMenu);
@@ -80,7 +82,7 @@ public class MainFrame extends JFrame {
 		});
 
 		JMenuItem sairMenuItem = new JMenuItem("Sair");
-		investimentoMenu.add(sairMenuItem);
+		ajudaMenu.add(sairMenuItem);
 		sairMenuItem.addActionListener(new ActionListener() {
 
 			@Override
@@ -129,5 +131,11 @@ public class MainFrame extends JFrame {
 
 		add(panel, new GBC(1, 0).both());
 
+	}
+	
+	public void setIconImage() {
+		URL iconimage = getClass().getResource("/images/simulador-casa.jpg");
+		ImageIcon icon = new ImageIcon(iconimage);
+		setIconImage(icon.getImage());
 	}
 }
