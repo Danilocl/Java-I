@@ -6,8 +6,11 @@ import java.awt.GridLayout;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
 
+import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
@@ -20,10 +23,8 @@ public class InvestimentoFinanca extends JDialog {
 
 	JPanel panel = new JPanel(new GridBagLayout());
 	JPanel painelFundo;
-	JScrollPane barraRolagem;  
-	
-	
-	
+	JScrollPane barraRolagem;
+
 	Object[][] dados = { { "Ana Monteiro", "48 9923-7898", "ana.monteiro@gmail.com", "fdfd" },
 			{ "João da Silva", "48 8890-3345", "joaosilva@hotmail.com", "fdfd" },
 			{ "Pedro Cascaes", "48 9870-5634", "pedrinho@gmail.com", "fdfd" } };
@@ -45,6 +46,7 @@ public class InvestimentoFinanca extends JDialog {
 		setModal(true);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(true);
+		buildMenu();
 	}
 
 	private void addbuildInvestimento() {
@@ -57,6 +59,18 @@ public class InvestimentoFinanca extends JDialog {
 		setVisible(true);
 
 		add(panel, new GBC(0, 0).both());
+
+	}
+
+	private void buildMenu() {
+		JMenuBar barra = new JMenuBar();
+		setJMenuBar(barra);
+		
+		JMenu sobre = new JMenu("Sobre");
+		barra.add(sobre);
+		
+		JMenu ajuda = new JMenu("Ajuda");
+		barra.add(ajuda);
 
 	}
 }
