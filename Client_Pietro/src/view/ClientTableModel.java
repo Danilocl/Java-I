@@ -9,9 +9,12 @@ import model.Client;
 
 public class ClientTableModel extends DefaultTableModel {
 
-	private String[] columnNames = { "Nome", "CPF", "Data de Nascimento" };
+	private String[] columnNames = { "Nome", "CPF", "Data de Nascimento"};
 
 	private List<Client> clients = new ArrayList<>();
+	
+	 
+	
 
 	@Override
 	public int getColumnCount() {
