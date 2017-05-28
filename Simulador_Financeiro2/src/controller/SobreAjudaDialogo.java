@@ -25,7 +25,7 @@ public class SobreAjudaDialogo extends JDialog {
 
 	private void addComentario() {
 		
-		String s = "Programa de versão 1.0V";
+		String s = "Programa de Simulação de Investimentos. versão 1.0V";
 		JLabel j = new JLabel(s);
 		add(j);
 	}

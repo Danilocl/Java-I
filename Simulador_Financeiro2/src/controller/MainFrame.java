@@ -31,7 +31,7 @@ public class MainFrame extends JFrame {
 		setLayout(new GridBagLayout());
 		buildMenu();
 		buildButtonPanel();
-		setSize(800, 600);
+		setSize(600, 400);
 		setMinimumSize(new Dimension(400, 300));
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -88,13 +88,14 @@ public class MainFrame extends JFrame {
 			}
 		});
 
-		JMenuItem sairMenuItem = new JMenuItem("Sair");
-		ajudaMenu.add(sairMenuItem);
-		sairMenuItem.addActionListener(new ActionListener() {
+		JMenuItem sairmenuItem = new JMenuItem("Sair");  	  
+		menuBar.add(sairmenuItem);  
+		sairmenuItem.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
+				
 			}
 		});
 	}
