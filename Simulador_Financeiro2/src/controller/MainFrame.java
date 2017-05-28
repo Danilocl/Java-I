@@ -44,7 +44,7 @@ public class MainFrame extends JFrame {
 
 	private void buildMenu() {
 
-		JFrame frame = new JFrame("mfkgm");
+		JFrame frame = new JFrame("Faça já sua simulação");
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 		
