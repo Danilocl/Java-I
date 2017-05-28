@@ -5,13 +5,13 @@ import java.util.Date;
 public class Mercado {
 
 	private String nomeEmpresas;
-	private Date diaAnterior;
-	private Date diaPosterior;
+	private String diaAnterior;
+	private String diaPosterior;
 	private double taxaAbertura;
 	private double taxaAlta;
 	private double taxaBaixa;
 
-	public Mercado(String nomeEmpresas, Date diaAnterior, Date diaPosterior, double taxaAbertura, double taxaAlta,
+	public Mercado(String nomeEmpresas, String diaAnterior, String diaPosterior, double taxaAbertura, double taxaAlta,
 			double taxaBaixa) {
 		super();
 		this.nomeEmpresas = nomeEmpresas;
@@ -30,19 +30,19 @@ public class Mercado {
 		this.nomeEmpresas = nomeEmpresas;
 	}
 
-	public Date getDiaAnterior() {
+	public String getDiaAnterior() {
 		return diaAnterior;
 	}
 
-	public void setDiaAnterior(Date diaAnterior) {
+	public void setDiaAnterior(String diaAnterior) {
 		this.diaAnterior = diaAnterior;
 	}
 
-	public Date getDiaPosterior() {
+	public String getDiaPosterior() {
 		return diaPosterior;
 	}
 
-	public void setDiaPosterior(Date diaPosterior) {
+	public void setDiaPosterior(String diaPosterior) {
 		this.diaPosterior = diaPosterior;
 	}
 

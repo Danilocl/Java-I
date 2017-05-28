@@ -6,14 +6,10 @@ import java.awt.GridLayout;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.swing.JButton;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.table.DefaultTableModel;
-
 import model.Mercado;
 
 
@@ -26,18 +22,16 @@ public class MercadoFinanca extends JFrame {
 	JPanel painelFundo;
 	JScrollPane barraRolagem;
 
-	private List<Mercado> mercado = new ArrayList<>();
 	
 	public MercadoFinanca(MainFrame mainframe) {
 		build();
 	}
 
-	Object[][] dados = { { "Ana Monteiro", "48 9923-7898", "ana.monteiro@gmail.com","fdfd"},
-			{ "João da Silva", "48 8890-3345", "joaosilva@hotmail.com","fdfd" },
-			{ "Pedro Cascaes", "48 9870-5634", "pedrinho@gmail.com","fdfd" } };
+	Object[][] dados = { { "Petrobras", "15/05/17", "16/05/17","65.55","70.25","35.55" },
+			{ "Petrobras", "15/05/17", "16/05/17","65.55","70.25","35.55" },
+			{"Petrobras", "15/05/17", "16/05/17","65.55","70.25","35.55" } };
 
-	String[] colunas = { "Nome", "Telefone", "Email","fdf"};
-
+	String[] colunas = { "Empresa", "Dia Anterior", "Dia Posterior", "Taxa de Abertura","Taxa Alta","Taxa Baixa" };
 	private void build() {
 
 		setLayout(new GridBagLayout());
