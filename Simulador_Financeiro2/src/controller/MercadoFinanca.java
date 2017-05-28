@@ -3,6 +3,8 @@ package controller;
 import java.awt.Dimension;
 import java.awt.GridBagLayout;
 import java.awt.GridLayout;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JButton;
 import javax.swing.JDialog;
@@ -12,6 +14,10 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
+import model.Mercado;
+
+
+
 public class MercadoFinanca extends JFrame {
 
 	private JTable tabela;
@@ -20,17 +26,18 @@ public class MercadoFinanca extends JFrame {
 	JPanel painelFundo;
 	JScrollPane barraRolagem;
 
+	private List<Mercado> mercado = new ArrayList<>();
+	
 	public MercadoFinanca(MainFrame mainframe) {
 		build();
 	}
 
-	Object[][] dados = { { "Ana Monteiro", "48 9923-7898", "ana.monteiro@gmail.com" },
-			{ "João da Silva", "48 8890-3345", "joaosilva@hotmail.com" },
-			{ "Pedro Cascaes", "48 9870-5634", "pedrinho@gmail.com" } };
+	Object[][] dados = { { "Ana Monteiro", "48 9923-7898", "ana.monteiro@gmail.com","fdfd"},
+			{ "João da Silva", "48 8890-3345", "joaosilva@hotmail.com","fdfd" },
+			{ "Pedro Cascaes", "48 9870-5634", "pedrinho@gmail.com","fdfd" } };
 
-	String[] colunas = { "Nome", "Telefone", "Email"};
-	
-	
+	String[] colunas = { "Nome", "Telefone", "Email","fdf"};
+
 	private void build() {
 
 		setLayout(new GridBagLayout());
@@ -40,13 +47,11 @@ public class MercadoFinanca extends JFrame {
 		setResizable(false);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		setVisible(true);
-		getColumnCount();
 		buildTable();
 	}
 
 	private void buildTable() {
 		panel.setLayout(new GridLayout(0, 1));
-		getColumnCount();
 		tabela = new JTable(dados, colunas);
 		barraRolagem = new JScrollPane(tabela);
 		panel.add(barraRolagem);
@@ -58,8 +63,5 @@ public class MercadoFinanca extends JFrame {
 
 	}
 
-	public int getColumnCount() {
-		return colunas.length;
-	}
 
 }
