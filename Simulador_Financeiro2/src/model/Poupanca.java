@@ -2,8 +2,8 @@ package model;
 
 public class Poupanca extends Investimento {
 
-	public Poupanca(double selic, String nomeInvestimento, double taxaInvestimento) {
-		super(selic, nomeInvestimento, taxaInvestimento);
+	public Poupanca(double selic, String titulo, double taxaInvestimento) {
+		super(selic, titulo, taxaInvestimento);
 	}
 
 }

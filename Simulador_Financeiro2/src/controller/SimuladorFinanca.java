@@ -31,6 +31,7 @@ public class SimuladorFinanca extends JDialog {
 		setLayout(new GridBagLayout());
 		addbuildSimulador();
 		pack();
+		setTitle("Simulador");
 		setMinimumSize(new Dimension(500, 400));
 		setLocationRelativeTo(null);
 		setResizable(false);
@@ -94,7 +95,7 @@ public class SimuladorFinanca extends JDialog {
 		});
 
 		JButton Apagar = new JButton("Apagar");
-		panel.add(Apagar, new GBC(1, 7).insets(1, 130, 1, 1));
+		panel.add(Apagar, new GBC(1, 7).insets(1,130,1,1));
 		Apagar.addActionListener(new ActionListener() {
 
 			@Override
@@ -109,8 +110,9 @@ public class SimuladorFinanca extends JDialog {
 				totalField.setText(" ");
 			}
 		});
+		
 		JButton calcular = new JButton("Calcular");
-		panel.add(calcular, new GBC(1, 7).insets(1, -35, 1, 1));
+		panel.add(calcular, new GBC(1, 7).insets(1,-35,1,1));
 
 		calcular.addActionListener(new ActionListener() {
 
@@ -122,34 +124,29 @@ public class SimuladorFinanca extends JDialog {
 				double n3;
 				int n4;
 
-				try {
+				n1 = Double.parseDouble(vlrInicialField.getText());
+				n2 = Double.parseDouble(vlrMensalField.getText());
+				n3 = Double.parseDouble(taxaJurosField.getText());
+				n4 = (int) Double.parseDouble(periodoField.getText());
 
-					n1 = Double.parseDouble(vlrInicialField.getText());
-					n2 = Double.parseDouble(vlrMensalField.getText());
-					n3 = Double.parseDouble(taxaJurosField.getText());
-					n4 = (int) Double.parseDouble(periodoField.getText());
+				Simulador sm = new Simulador(n1, n2, n3, n4);
 
-					Simulador sm = new Simulador(n1, n2, n3, n4);
+				vt = (float) ((sm.getValorInicial() + sm.getValorMensal()) * sm.getTaxaJuros() * sm.getPeriodo());
+				totalJurosField.setText(String.valueOf(vt));
 
-					vt = (float) ((sm.getValorInicial() + sm.getValorMensal()) * sm.getTaxaJuros() * sm.getPeriodo());
-					totalJurosField.setText(String.valueOf(vt));
+				vt2 = (float) ((sm.getValorInicial() + sm.getValorMensal()) * sm.getPeriodo());
+				totalInvestidoField.setText(String.valueOf(vt2));
 
-					vt2 = (float) ((sm.getValorInicial() + sm.getValorMensal()) * sm.getPeriodo());
-					totalInvestidoField.setText(String.valueOf(vt2));
+				vt3 = (vt + vt2);
+				totalField.setText(String.valueOf(vt3));
 
-					vt3 = (vt + vt2);
-					totalField.setText(String.valueOf(vt3));
+				if (n4 > 30) {
+					periodoField.setText(" ");
+					totalJurosField.setText("");
+					totalInvestidoField.setText("");
+					totalField.setText("");
+					JOptionPane.showMessageDialog(null, "Período não pode ser maior que 30 anos. Tente novamente");
 
-					if (n4 > 30) {
-						periodoField.setText(" ");
-						totalJurosField.setText("");
-						totalInvestidoField.setText("");
-						totalField.setText("");
-						JOptionPane.showMessageDialog(null, "Período não pode ser maior que 30. Tente novamente");
-
-					}
-				} catch (NumberFormatException a) {
-					JOptionPane.showMessageDialog(null, "Por favor não deixe nenhum campo em branco");
 				}
 			}
 		});

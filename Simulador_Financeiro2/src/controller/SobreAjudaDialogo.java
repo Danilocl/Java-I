@@ -16,6 +16,7 @@ public class SobreAjudaDialogo extends JDialog {
 	private void build(MainFrame mainframe) {
 		addComentario();
 		setSize(400, 300);
+		setResizable(false);
 		setMinimumSize(new Dimension(300, 200));
 		setLocationRelativeTo(mainframe);
 		setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);

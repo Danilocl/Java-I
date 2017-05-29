@@ -3,13 +3,13 @@ package model;
 public class Investimento {
 
 	private double selic;
-	private String nomeInvestimento;
+	private String titulo;
 	private double taxaInvestimento;
 
-	public Investimento(double selic, String nomeInvestimento, double taxaInvestimento) {
+	public Investimento(double selic, String titulo, double taxaInvestimento) {
 		super();
 		this.selic = selic;
-		this.nomeInvestimento = nomeInvestimento;
+		this.titulo = titulo;
 		this.taxaInvestimento = taxaInvestimento;
 	}
 
@@ -21,12 +21,12 @@ public class Investimento {
 		this.selic = selic;
 	}
 
-	public String getNomeInvestimento() {
-		return nomeInvestimento;
+	public String getTitulo() {
+		return titulo;
 	}
 
-	public void setNomeInvestimento(String nomeInvestimento) {
-		this.nomeInvestimento = nomeInvestimento;
+	public void setTitulo(String titulo) {
+		this.titulo = titulo;
 	}
 
 	public double getTaxaInvestimento() {

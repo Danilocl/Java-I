@@ -38,9 +38,9 @@ public class MercadoFinanca extends JFrame {
 	private void build() {
 
 		setLayout(new GridBagLayout());
-		buildMenuBar();
 		buildButton();
 		pack();
+		setTitle("Mercado");
 		setMinimumSize(new Dimension(500, 400));
 		setLocationRelativeTo(null);
 		setResizable(false);
@@ -62,18 +62,6 @@ public class MercadoFinanca extends JFrame {
 
 	}
 
-	private void buildMenuBar() {
-		JMenuBar menubar = new JMenuBar();
-		setJMenuBar(menubar);
-
-		JMenu sobre = new JMenu("Sobre");
-		menubar.add(sobre);
-
-		JMenu ajuda = new JMenu("Ajuda");
-		menubar.add(ajuda);
-
-	}
-	
 	private void buildButton() {
 		JPanel panel = new JPanel(new GridBagLayout());
 		JButton voltar = new JButton("Voltar");
