@@ -5,6 +5,8 @@ import java.awt.Dimension;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JScrollPane;
+import javax.swing.JTextArea;
 
 public class SobreAjudaDialogo extends JDialog {
 
@@ -26,8 +28,16 @@ public class SobreAjudaDialogo extends JDialog {
 
 	private void addComentario() {
 		
-		String s = "Programa de Simulação de Investimentos. versão 1.0V";
-		JLabel j = new JLabel(s);
-		add(j);
+		JTextArea area = new JTextArea(
+				"Programa de Simulação de Investimentos. versão 1.0V");
+		area.setPreferredSize(new Dimension(300, 150));
+		area.setLineWrap(true);
+		area.setWrapStyleWord(true);
+
+		JScrollPane scrollPane = new JScrollPane(area, JScrollPane.VERTICAL_SCROLLBAR_ALWAYS,
+				JScrollPane.HORIZONTAL_SCROLLBAR_ALWAYS);
+
+		add(scrollPane);
+		area.setEditable(false);
 	}
 }
