@@ -58,7 +58,7 @@ public class MercadoFinanca extends JFrame {
 		setSize(500, 120);
 		setVisible(true);
 
-		add(panel, new GBC(0, 0).both());
+		add(panel, new GBC(0, 1).both());
 
 	}
 
@@ -77,8 +77,8 @@ public class MercadoFinanca extends JFrame {
 	private void buildButton() {
 		JPanel panel = new JPanel(new GridBagLayout());
 		JButton voltar = new JButton("Voltar");
-		panel.add(voltar,new GBC(1, 3));
-		add(panel,new GBC(1,10));
+		panel.add(voltar,new GBC(1, 2));
+		add(panel,new GBC(0,2).right());
 		
 		voltar.addActionListener(new ActionListener() {
 			

@@ -98,7 +98,7 @@ public class InvestimentoFinanca extends JDialog {
 		panel.add(totalfield, new GBC(1, 6).horizontal());
 		totalfield.setEditable(false);
 
-		JButton cancel = new JButton("Cancelar");
+		JButton cancel = new JButton("Voltar");
 		panel.add(cancel, new GBC(1, 7).right());
 		cancel.addActionListener(new ActionListener() {
 			
@@ -109,35 +109,26 @@ public class InvestimentoFinanca extends JDialog {
 			}
 		});
 
-		JButton novo = new JButton("Novo");
-		panel.add(novo, new GBC(1, 7));
-		novo.addActionListener(new ActionListener() {
-
-			@Override
-			public void actionPerformed(ActionEvent e) {
-
-
-				vlr.setText("");
-				invest.setText("");
-				mesesfield.setText("");
-				jurosfield.setText("");
-				taxa.setText("");
-				totalfield.setText("");
-
-			}
-		});
-
 		JButton sendinvest = new JButton("Investir");
 		panel.add(sendinvest, new GBC(1, 7).left());
 		
 		sendinvest.addActionListener(new ActionListener() {
 			
+			private String title;
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				
-				JOptionPane.showMessageDialog(null, "Valor Investido");
-				
+			int resposta = JOptionPane.showConfirmDialog(null, "Deseja investir?",title, JOptionPane.YES_NO_OPTION);
+				if(resposta == JOptionPane.YES_OPTION){
+					JOptionPane.showMessageDialog(null, "XP Investimentos = https://investimentos.xpi.com.br/");
+					JOptionPane.showMessageDialog(null, "Tesouro Fazenda = http://www.tesouro.fazenda.gov.br/");
+					
+				}else if (resposta == JOptionPane.NO_OPTION){
+					dispose();
+				}
 			}
+
 		});
 
 		// add(panel, new GBC(0, 0).both());

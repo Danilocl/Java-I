@@ -94,7 +94,7 @@ public class SimuladorFinanca extends JDialog {
 		});
 
 		JButton Apagar = new JButton("Apagar");
-		panel.add(Apagar, new GBC(1, 7));
+		panel.add(Apagar, new GBC(1, 7).insets(1,130,1,1));
 		Apagar.addActionListener(new ActionListener() {
 
 			@Override
@@ -107,11 +107,10 @@ public class SimuladorFinanca extends JDialog {
 				totalInvestidoField.setText(" ");
 				totalJurosField.setText(" ");
 				totalField.setText(" ");
-
 			}
 		});
 		JButton calcular = new JButton("Calcular");
-		panel.add(calcular, new GBC(1, 7).left());
+		panel.add(calcular, new GBC(1, 7).insets(1,-35,1,1));
 
 		calcular.addActionListener(new ActionListener() {
 
