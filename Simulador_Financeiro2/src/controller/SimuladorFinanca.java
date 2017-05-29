@@ -118,7 +118,8 @@ public class SimuladorFinanca extends JDialog {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-
+				try{
+				
 				double n1;
 				double n2;
 				double n3;
@@ -147,6 +148,9 @@ public class SimuladorFinanca extends JDialog {
 					totalField.setText("");
 					JOptionPane.showMessageDialog(null, "Período não pode ser maior que 30 anos. Tente novamente");
 
+				}}
+				catch(Exception g){
+					JOptionPane.showMessageDialog(null, "Favor inserir valor");
 				}
 			}
 		});
