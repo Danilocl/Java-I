@@ -149,6 +149,7 @@ public class SimuladorFinanca extends JDialog {
 					JOptionPane.showMessageDialog(null, "Período não pode ser maior que 30 anos. Tente novamente");
 
 				}}
+				
 				catch(Exception g){
 					JOptionPane.showMessageDialog(null, "Favor inserir valor");
 				}
