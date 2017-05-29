@@ -26,8 +26,6 @@ public class MainFrame extends JFrame {
 	}
 
 	private void build() {
-	    JFrame frame = new JFrame();
-	    frame.setTitle("fdf");
 		setLayout(new GridBagLayout());
 		buildMenu();
 		buildButtonPanel();
@@ -40,16 +38,10 @@ public class MainFrame extends JFrame {
 
 	}
 
-	
-
 	private void buildMenu() {
 
-		JFrame frame = new JFrame("Faça já sua simulação");
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
-		
-		
-
 		JMenu investimentoMenu = new JMenu("Investimento");
 		menuBar.add(investimentoMenu);
 		JMenu sobreMenu = new JMenu("Tipos");
@@ -88,14 +80,14 @@ public class MainFrame extends JFrame {
 			}
 		});
 
-		JMenuItem sairmenuItem = new JMenuItem("Sair");  	  
-		menuBar.add(sairmenuItem);  
+		JMenuItem sairmenuItem = new JMenuItem("Sair");
+		menuBar.add(sairmenuItem);
 		sairmenuItem.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				System.exit(0);
-				
+
 			}
 		});
 	}
@@ -104,7 +96,7 @@ public class MainFrame extends JFrame {
 
 		JPanel panel = new JPanel(new GridBagLayout());
 		JButton investimento = new JButton("Investimento");
-		panel.add(investimento, new GBC(1, 3).insets(-250,1,1,1).horizontal());
+		panel.add(investimento, new GBC(1, 3).insets(-250, 1, 1, 1).horizontal());
 
 		investimento.addActionListener(new ActionListener() {
 
@@ -116,7 +108,7 @@ public class MainFrame extends JFrame {
 
 		ImageIcon img = new ImageIcon("images/simulacao-casa.jpg");
 		JButton mercado = new JButton("Mercado", img);
-		panel.add(mercado, new GBC(2, 3).insets(-250,1,1,1).horizontal());
+		panel.add(mercado, new GBC(2, 3).insets(-250, 1, 1, 1).horizontal());
 		mercado.addActionListener(new ActionListener() {
 
 			@Override
@@ -127,7 +119,7 @@ public class MainFrame extends JFrame {
 
 		JButton simulacao = new JButton("Simulação");
 		;
-		panel.add(simulacao, new GBC(3, 3).insets(-250,1,1,1).horizontal());
+		panel.add(simulacao, new GBC(3, 3).insets(-250, 1, 1, 1).horizontal());
 		simulacao.addActionListener(new ActionListener() {
 
 			@Override

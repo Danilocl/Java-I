@@ -157,7 +157,4 @@ public class InvestimentoFinanca extends JDialog {
 		add(panel, new GBC(0, 0));
 	}
 
-	private void janela() {
-
-	}
 }
