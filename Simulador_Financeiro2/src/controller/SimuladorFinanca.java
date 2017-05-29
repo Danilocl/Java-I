@@ -150,6 +150,10 @@ public class SimuladorFinanca extends JDialog {
 				}
 			}
 		});
+		
+		JButton BTexcel = new JButton("Gerar Excel");
+		panel.add(BTexcel, new GBC(1, 7).insets(1,-225,1,1));
+		
 		add(panel, new GBC(0, 0).both());
 	}
 
