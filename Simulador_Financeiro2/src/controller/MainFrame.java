@@ -30,7 +30,6 @@ public class MainFrame extends JFrame {
 
 	private void build() {
 	    JFrame frame = new JFrame();
-	    frame.setTitle("fdf");
 	    setLayout(new GridBagLayout());
 	    buildMenu();
 		setTitle("Gestão de Investimentos");
@@ -48,18 +47,21 @@ public class MainFrame extends JFrame {
 	private void buildMenu() {
 
 		JFrame frame = new JFrame("Faça já sua simulação");
+		
 		JMenuBar menuBar = new JMenuBar();
 		setJMenuBar(menuBar);
 
-		JMenu investimentoMenu = new JMenu("Investimento");
-		menuBar.add(investimentoMenu);
-		JMenu sobreMenu = new JMenu("Tipos");
-		investimentoMenu.add(sobreMenu);
+		JMenu arquivoMenu = new JMenu("Arquivo");
+		menuBar.add(arquivoMenu);
+		JMenu investimentoMenu = new JMenu("Investimentos");
+		arquivoMenu.add(investimentoMenu);
+		JMenu mercadoMenu = new JMenu("Mercado");
+		arquivoMenu.add(mercadoMenu);
 		JMenu ajudaMenu = new JMenu("Ajuda");
 		menuBar.add(ajudaMenu);
 
 		JMenuItem tesouroItem = new JMenuItem("Tesuro");
-		sobreMenu.add(tesouroItem);
+		investimentoMenu.add(tesouroItem);
 		tesouroItem.addActionListener(new ActionListener() {
 
 			@Override
@@ -69,13 +71,23 @@ public class MainFrame extends JFrame {
 			}
 		});
 
-		JMenuItem investimentoItem = new JMenuItem("Fundo de Investimento");
-		sobreMenu.add(investimentoItem);
-		investimentoItem.addActionListener(new ActionListener() {
+		JMenuItem fundoItem = new JMenuItem("Fundo de Investimento");
+		investimentoMenu.add(fundoItem);
+		fundoItem.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				new SobreDialogoFundo(MainFrame.this);
+			}
+		});
+		
+		JMenuItem bovespaItem = new JMenuItem("Bovespa");
+		mercadoMenu.add(bovespaItem);
+		bovespaItem.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				new SobreBovespaDialogo(MainFrame.this);
 			}
 		});
 
@@ -90,7 +102,7 @@ public class MainFrame extends JFrame {
 		});
 
 		JMenuItem sairmenuItem = new JMenuItem("Sair");  	  
-		menuBar.add(sairmenuItem);  
+		arquivoMenu.add(sairmenuItem);  
 		sairmenuItem.addActionListener(new ActionListener() {
 
 			@Override
@@ -115,8 +127,7 @@ public class MainFrame extends JFrame {
 			}
 		});
 
-		ImageIcon img = new ImageIcon("images/simulacao-casa.jpg");
-		JButton mercado = new JButton("Mercado", img);
+		JButton mercado = new JButton("Mercado");
 		panel.add(mercado, new GBC(2, 3).insets(-250,1,1,1).horizontal());
 		mercado.addActionListener(new ActionListener() {
 
@@ -126,8 +137,7 @@ public class MainFrame extends JFrame {
 			}
 		});
 
-		JButton simulacao = new JButton("Simulação");
-		;
+		JButton simulacao = new JButton("Simulador");
 		panel.add(simulacao, new GBC(3, 3).insets(-250,1,1,1).horizontal());
 		simulacao.addActionListener(new ActionListener() {
 
