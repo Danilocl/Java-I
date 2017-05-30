@@ -115,24 +115,27 @@ public class SimuladorFinanca extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try{
-	
+					
+				double vlrFinalPagar;
+					
 				double capital = Double.parseDouble((vlrInicialField.getText()));
 				double acumMes = Double.parseDouble(vlrMensalField.getText());
 				double juros = Double.parseDouble(taxaJurosField.getText());
 				double periodo = (int) Double.parseDouble(periodoField.getText());
-
+				
 				Simulador sm = new Simulador(capital, acumMes, juros, periodo);
 
-				float valorInvestido = (float) ((sm.getValorInicial() + ((sm.getValorMensal()) * sm.getPeriodo()) * 12));
+				float valorInvestido = (float) ((sm.getValorInicial() + ((sm.getValorMensal()) * sm.getPeriodo()*12)));
 				totalInvestidoField.setText(String.valueOf(valorInvestido));
 			
-				float vlrJuros = (float) ((sm.getValorInicial() * Math.pow(1+juros/100, periodo -1)));
+				float vlrJuros = (float) (((capital * (1+juros/100))));
+				
 				totalJurosField.setText(String.valueOf(vlrJuros));
 
-				float vlrTotal = (float) (sm.getValorInicial() * ((1 + sm.getTaxaJuros())));
+				float vlrTotal = (float) (valorInvestido + vlrJuros);
 				totalField.setText(String.valueOf(vlrTotal));
 
-				if (periodo > 90) {
+				if (periodo > 15000) {
 					periodoField.setText(" ");
 					totalJurosField.setText("");
 					totalInvestidoField.setText("");
