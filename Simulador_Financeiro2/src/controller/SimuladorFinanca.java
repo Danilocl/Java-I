@@ -4,7 +4,6 @@ import java.awt.Dimension;
 import java.awt.GridBagLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
 import javax.swing.JButton;
 import javax.swing.JDialog;
 import javax.swing.JFrame;
@@ -117,30 +116,28 @@ public class SimuladorFinanca extends JDialog {
 			public void actionPerformed(ActionEvent e) {
 				try{
 	
-				int n4 = 0;
-
 				double capital = Double.parseDouble((vlrInicialField.getText()));
 				double acumMes = Double.parseDouble(vlrMensalField.getText());
 				double juros = Double.parseDouble(taxaJurosField.getText());
-				double mes = Double.parseDouble(periodoField.getText());
+				double periodo = (int) Double.parseDouble(periodoField.getText());
 
-				Simulador sm = new Simulador(capital, acumMes, juros, mes);
+				Simulador sm = new Simulador(capital, acumMes, juros, periodo);
 
 				float valorInvestido = (float) ((sm.getValorInicial() + ((sm.getValorMensal()) * sm.getPeriodo()) * 12));
 				totalInvestidoField.setText(String.valueOf(valorInvestido));
 			
-				float vlrJuros = (float) ((sm.getValorInicial() * ((1 + sm.getTaxaJuros()))));
+				float vlrJuros = (float) ((sm.getValorInicial() * Math.pow(1+juros/100, periodo -1)));
 				totalJurosField.setText(String.valueOf(vlrJuros));
 
 				float vlrTotal = (float) (sm.getValorInicial() * ((1 + sm.getTaxaJuros())));
 				totalField.setText(String.valueOf(vlrTotal));
 
-				if (n4 > 30) {
+				if (periodo > 90) {
 					periodoField.setText(" ");
 					totalJurosField.setText("");
 					totalInvestidoField.setText("");
 					totalField.setText("");
-					JOptionPane.showMessageDialog(null, "Período não pode ser maior que 30 anos. Tente novamente");
+					JOptionPane.showMessageDialog(null, "Período não pode ser maior que 90 anos. Tente novamente");
 
 				}}
 				
