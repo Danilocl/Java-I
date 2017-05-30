@@ -9,6 +9,7 @@ import java.net.URL;
 import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JFrame;
+import javax.swing.JLabel;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
@@ -20,7 +21,9 @@ import model.Investimento;
 public class MainFrame extends JFrame {
 
 	private JTable table;
-
+	JLabel recado = new JLabel();
+	ImageIcon fundo = new ImageIcon(getClass().getResource("/images/investment.png"));
+	
 	public MainFrame() {
 		build();
 	}
@@ -28,8 +31,8 @@ public class MainFrame extends JFrame {
 	private void build() {
 	    JFrame frame = new JFrame();
 	    frame.setTitle("fdf");
-		setLayout(new GridBagLayout());
-		buildMenu();
+	    setLayout(new GridBagLayout());
+	    buildMenu();
 		setTitle("Gestão de Investimentos");
 		buildButtonPanel();
 		setSize(600, 400);
@@ -37,11 +40,10 @@ public class MainFrame extends JFrame {
 		setLocationRelativeTo(null);
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setVisible(true);
+		recado.setIcon(fundo);
+		add(recado);
 		setIconImage();
-
 	}
-
-	
 
 	private void buildMenu() {
 
