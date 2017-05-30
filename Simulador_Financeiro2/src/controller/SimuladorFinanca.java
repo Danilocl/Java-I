@@ -129,11 +129,11 @@ public class SimuladorFinanca extends JDialog {
 				float valorInvestido = (float) ((sm.getValorInicial() + ((sm.getValorMensal()) * sm.getPeriodo()) * 12));
 				totalInvestidoField.setText(String.valueOf(valorInvestido));
 			
-				float vt2 = (float) ((sm.getValorInicial() * ((1 + sm.getTaxaJuros()))));
-				totalJurosField.setText(String.valueOf(vt2));
+				float vlrJuros = (float) ((sm.getValorInicial() * ((1 + sm.getTaxaJuros()))));
+				totalJurosField.setText(String.valueOf(vlrJuros));
 
-				float vt3 = (float) (sm.getValorInicial() * ((1 + sm.getTaxaJuros())));
-				totalField.setText(String.valueOf(vt3));
+				float vlrTotal = (float) (sm.getValorInicial() * ((1 + sm.getTaxaJuros())));
+				totalField.setText(String.valueOf(vlrTotal));
 
 				if (n4 > 30) {
 					periodoField.setText(" ");
