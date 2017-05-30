@@ -17,10 +17,7 @@ import model.Simulador;
 
 public class SimuladorFinanca extends JDialog {
 
-	private float vt;
-	private float vt2;
-	private float vt3;
-	private float vt4;
+
 
 	public SimuladorFinanca(MainFrame mainframe) {
 		build();
@@ -47,7 +44,7 @@ public class SimuladorFinanca extends JDialog {
 		panel.add(vlrInicial, new GBC(0, 0));
 		JTextField vlrInicialField = new JTextField(20);
 		panel.add(vlrInicialField, new GBC(1, 0).horizontal());
-
+		
 		JLabel vlrMensal = new JLabel("Valor Mensal:");
 		panel.add(vlrMensal, new GBC(0, 1));
 		JTextField vlrMensalField = new JTextField(20);
@@ -119,26 +116,23 @@ public class SimuladorFinanca extends JDialog {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				try{
-				
-				double n1;
-				double n2;
-				double n3;
-				int n4;
+	
+				int n4 = 0;
 
-				n1 = Double.parseDouble(vlrInicialField.getText());
-				n2 = Double.parseDouble(vlrMensalField.getText());
-				n3 = Double.parseDouble(taxaJurosField.getText());
-				n4 = (int) Double.parseDouble(periodoField.getText());
+				double capital = Double.parseDouble((vlrInicialField.getText()));
+				double acumMes = Double.parseDouble(vlrMensalField.getText());
+				double juros = Double.parseDouble(taxaJurosField.getText());
+				double mes = Double.parseDouble(periodoField.getText());
 
-				Simulador sm = new Simulador(n1, n2, n3, n4);
+				Simulador sm = new Simulador(capital, acumMes, juros, mes);
 
-				vt = (float) ((sm.getValorInicial() + sm.getValorMensal()) * sm.getTaxaJuros() * sm.getPeriodo());
-				totalJurosField.setText(String.valueOf(vt));
+				float valorInvestido = (float) ((sm.getValorInicial() + ((sm.getValorMensal()) * sm.getPeriodo()) * 12));
+				totalInvestidoField.setText(String.valueOf(valorInvestido));
+			
+				float vt2 = (float) ((sm.getValorInicial() * ((1 + sm.getTaxaJuros()))));
+				totalJurosField.setText(String.valueOf(vt2));
 
-				vt2 = (float) ((sm.getValorInicial() + sm.getValorMensal()) * sm.getPeriodo());
-				totalInvestidoField.setText(String.valueOf(vt2));
-
-				vt3 = (vt + vt2);
+				float vt3 = (float) (sm.getValorInicial() * ((1 + sm.getTaxaJuros())));
 				totalField.setText(String.valueOf(vt3));
 
 				if (n4 > 30) {

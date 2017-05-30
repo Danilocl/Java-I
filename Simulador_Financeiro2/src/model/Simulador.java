@@ -5,9 +5,9 @@ public class Simulador {
 	private double valorInicial;
 	private double valorMensal;
 	private double taxaJuros;
-	private int periodo;
+	private double periodo;
 
-	public Simulador(double valorInicial, double valorMensal, double taxaJuros, int periodo) {
+	public Simulador(double valorInicial, double valorMensal, double taxaJuros, double periodo) {
 		super();
 		this.valorInicial = valorInicial;
 		this.valorMensal = valorMensal;
@@ -39,11 +39,11 @@ public class Simulador {
 		this.taxaJuros = taxaJuros;
 	}
 
-	public int getPeriodo() {
+	public double getPeriodo() {
 		return periodo;
 	}
 
-	public void setPeriodo(int periodo) {
+	public void setPeriodo(double periodo) {
 		this.periodo = periodo;
 	}
 	
