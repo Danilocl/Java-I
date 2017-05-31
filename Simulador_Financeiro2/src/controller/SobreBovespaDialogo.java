@@ -4,14 +4,12 @@ import java.awt.Dimension;
 
 import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
-public class SobreDialogoFundo extends JDialog {
+public class SobreBovespaDialogo extends JDialog {
 
-	public SobreDialogoFundo(MainFrame mainframe) {
-
+	public SobreBovespaDialogo(MainFrame mainframe) {
 		build(mainframe);
 	}
 
@@ -28,8 +26,8 @@ public class SobreDialogoFundo extends JDialog {
 	private void addComentario() {
 
 		JTextArea area = new JTextArea(
-				"O fundo de investimento é um mecanismo que reúne o dinheiro de diversas pessoas (chamadas de cotistas) com o objetivo de contratar um gestor profissional para cuidar do dinheiro ali investido. O objetivo final dos cotistas é obter ganhos a partir da aplicação do mercado financeiro. Existem diversas modalidades como Fundo de Ações, Fundos de Renda Fixa, Fundo Multimercado, entre outras. Além dessa aplicação ser tributada pelo imposto de renda, existem alguns custos como taxa de administração, taxa de Performance e taxa de resgate."
-				+"\n\nLInk para acesso:https://www.xpi.com.br/investimentos/fundos-de-investimento");
+				"A Bolsa de Valores de São Paulo - Bovespa era a bolsa oficial do Brasil, até iniciar um processo de fusão com a BM&F que culminou na criação de uma nova instituição, denominada BM&FBovespa no dia 8 de maio de 2008. Após nova fusão, desta vez com a CETIP, ocorrida em 23 de março de 2017, a instituição passou a ser denominada B3 - BRASIL, BOLSA, BALCÃO. Sua sede localiza-se no centro da cidade de São Paulo e seu principal índice econômico é o IBOVESPA."
+				+ "\n\nLink para acesso: http://www.bmfbovespa.com.br/pt_br/index.htm");
 		area.setPreferredSize(new Dimension(300, 150));
 		area.setLineWrap(true);
 		area.setWrapStyleWord(true);
@@ -39,7 +37,6 @@ public class SobreDialogoFundo extends JDialog {
 
 		add(scrollPane);
 		area.setEditable(false);
+
 	}
 }
-
-

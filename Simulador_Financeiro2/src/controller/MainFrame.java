@@ -29,9 +29,9 @@ public class MainFrame extends JFrame {
 	}
 
 	private void build() {
-	    JFrame frame = new JFrame();
 	    setLayout(new GridBagLayout());
 	    buildMenu();
+	    setResizable(false);
 		setTitle("Gestão de Investimentos");
 		buildButtonPanel();
 		setSize(600, 400);
