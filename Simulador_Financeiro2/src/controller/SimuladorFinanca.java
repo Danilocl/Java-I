@@ -16,8 +16,6 @@ import model.Simulador;
 
 public class SimuladorFinanca extends JDialog {
 
-
-
 	public SimuladorFinanca(MainFrame mainframe) {
 		build();
 	}
@@ -43,7 +41,7 @@ public class SimuladorFinanca extends JDialog {
 		panel.add(vlrInicial, new GBC(0, 0));
 		JTextField vlrInicialField = new JTextField(20);
 		panel.add(vlrInicialField, new GBC(1, 0).horizontal());
-		
+
 		JLabel vlrMensal = new JLabel("Valor Mensal:");
 		panel.add(vlrMensal, new GBC(0, 1));
 		JTextField vlrMensalField = new JTextField(20);
@@ -91,7 +89,7 @@ public class SimuladorFinanca extends JDialog {
 		});
 
 		JButton Apagar = new JButton("Apagar");
-		panel.add(Apagar, new GBC(1, 7).insets(1,130,1,1));
+		panel.add(Apagar, new GBC(1, 7).insets(1, 130, 1, 1));
 		Apagar.addActionListener(new ActionListener() {
 
 			@Override
@@ -106,54 +104,56 @@ public class SimuladorFinanca extends JDialog {
 				totalField.setText(" ");
 			}
 		});
-		
+
 		JButton calcular = new JButton("Calcular");
-		panel.add(calcular, new GBC(1, 7).insets(1,-35,1,1));
+		panel.add(calcular, new GBC(1, 7).insets(1, -35, 1, 1));
 
 		calcular.addActionListener(new ActionListener() {
 
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				try{
-					
-				double vlrFinalPagar;
-					
-				double capital = Double.parseDouble((vlrInicialField.getText()));
-				double acumMes = Double.parseDouble(vlrMensalField.getText());
-				double juros = Double.parseDouble(taxaJurosField.getText());
-				double periodo = (int) Double.parseDouble(periodoField.getText());
-				
-				Simulador sm = new Simulador(capital, acumMes, juros, periodo);
+				try {
 
-				float valorInvestido = (float) ((sm.getValorInicial() + ((sm.getValorMensal()) * sm.getPeriodo()*12)));
-				totalInvestidoField.setText(String.valueOf(valorInvestido));
-			
-				float vlrJuros = (float) (((capital * (1+juros/100))));
-				
-				totalJurosField.setText(String.valueOf(vlrJuros));
+					final double vlrFinalPagar;
 
-				float vlrTotal = (float) (valorInvestido + vlrJuros);
-				totalField.setText(String.valueOf(vlrTotal));
+					double capital = Double.parseDouble((vlrInicialField.getText()));
+					final double acumMes = Double.parseDouble(vlrMensalField.getText());
+					final double juros = Double.parseDouble(taxaJurosField.getText());
+					final double periodo = (int) Double.parseDouble(periodoField.getText()) * 12;
+					double vlrJuros = 0.00;
 
-				if (periodo > 15000) {
-					periodoField.setText(" ");
-					totalJurosField.setText("");
-					totalInvestidoField.setText("");
-					totalField.setText("");
-					JOptionPane.showMessageDialog(null, "Período não pode ser maior que 90 anos. Tente novamente");
+					final Simulador sm = new Simulador(capital, acumMes, juros, periodo);
 
-				}}
-				
-				catch(Exception g){
+					for (int i = 0; i < periodo; i++) {
+						final double valorCalculado = calcularJuros(juros, capital);
+						vlrJuros += (valorCalculado - capital);
+						capital = valorCalculado + acumMes;
+					}
+
+					final float valorInvestido = (float) ((sm.getValorInicial()
+							+ ((sm.getValorMensal()) * sm.getPeriodo())));
+					totalInvestidoField.setText(String.valueOf(valorInvestido));
+
+					totalJurosField.setText(String.valueOf(vlrJuros));
+
+					final float vlrTotal = (float) (valorInvestido + vlrJuros);
+					totalField.setText(String.valueOf(vlrTotal));
+
+				}
+				catch (Exception g) {
 					JOptionPane.showMessageDialog(null, "Favor inserir valor");
 				}
 			}
 		});
-		
+
 		JButton BTexcel = new JButton("Gerar Excel");
-		panel.add(BTexcel, new GBC(1, 7).insets(1,-225,1,1));
-		
+		panel.add(BTexcel, new GBC(1, 7).insets(1, -225, 1, 1));
+
 		add(panel, new GBC(0, 0).both());
+	}
+
+	public static double calcularJuros(final double taxa, final double valorInvestido) {
+		return valorInvestido * (1 + (taxa / 100));
 	}
 
 }
