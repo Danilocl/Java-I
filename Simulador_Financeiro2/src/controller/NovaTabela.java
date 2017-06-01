@@ -1,4 +1,3 @@
-
 package controller;
 
 import java.awt.Dimension;
@@ -6,49 +5,39 @@ import java.awt.GridBagLayout;
 import java.awt.GridLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.DateFormat;
-import java.text.SimpleDateFormat;
 
 import javax.swing.JButton;
-import javax.swing.JComboBox;
-import javax.swing.JDialog;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JMenu;
-import javax.swing.JMenuBar;
 import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
-import javax.swing.JTextField;
 
-import model.Mercado;
-
-public class InvestimentoFinanca extends JFrame {
+ public class NovaTabela extends JFrame {
 
 	private JTable tabela;
 
 	JScrollPane barraRolagem;
 	
-	public InvestimentoFinanca(MainFrame mainframe) {
-		build();
+	public NovaTabela(MainFrame mainframe) {
+		build(mainframe);
 	}
 
-	Object[][] dados = { { "Tesouro IPCA + 2024", "15/08/2024", "5.50%", "R$ 40.80" },
-			{ "Tesouro IPCA + 2035", "15/08/2035", "5.49%", "R$ 34.55" },
-			{ "Tesouro IPCA + 2045", "15/05/2045", "5.49%", "R$ 33.80" }, 
-			{ "Tesouro IPCA + Juros Semestrais", "15/05/2026", "5.62%", "R$ 31.30" }};
+	Object[][] dados = { { "Easynvest IPCA + 2024", "15/08/2024", "5.50%", "R$ 40.80" },
+			{ "Easynvest IPCA + 2035", "15/08/2035", "5.49%", "R$ 34.55" },
+			{ "Easynvest IPCA + 2045", "15/05/2045", "5.49%", "R$ 33.80" }, 
+			{ "Easynvest IPCA + Juros Semestrais 2026", "15/05/2026", "5.62%", "R$ 31.30" }};
 
 	String[] colunas = { "Título", "Vencimento", "Taxa Rendimento", "Valor Minimo" };
 	
-	Object[][] dados2 = { { "Fundo IPCA + 2024", "15/08/2024", "5.50%", "R$ 40.80" },
-			{ "Fundo IPCA + 2035", "15/08/2035", "5.49%", "R$ 34.55" },
-			{ "Fundo IPCA + 2045", "15/05/2045", "5.49%", "R$ 33.80" }, 
-			{ "Fundo IPCA + Juros Semestrais", "15/05/2026", "5.62%", "R$ 31.30" }};
+	Object[][] dados2 = { { "Vale IPCA + 2024", "15/08/2024", "5.50%", "R$ 40.80" },
+			{ "Vale IPCA + 2035", "15/08/2035", "5.49%", "R$ 34.55" },
+			{ "Vale IPCA + 2045", "15/05/2045", "5.49%", "R$ 33.80" }, 
+			{ "Vale IPCA + Juros Semestrais", "15/05/2026", "5.62%", "R$ 31.30" }};
 
 	String[] colunas2 = { "Título", "Vencimento", "Taxa Rendimento", "Valor Minimo" };
 
-	private void build() {
+	private void build(MainFrame mainframe) {
 		setLayout(new GridBagLayout());
 		buildInvestimento();
 		pack();
@@ -91,45 +80,10 @@ public class InvestimentoFinanca extends JFrame {
 
 	}
 	
-//	private void buildAcessoInvest() {
-//		JPanel panel = new JPanel(new GridBagLayout());
-//		panel.setLayout(new GridLayout(0, 2));
-//		
-//		JButton tesouro = new JButton("Tesouro");
-//		panel.add(tesouro, new GBC(1, 2));
-//		add(panel,new GBC(0,1).right());
-//		tesouro.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//			}
-//		});
-//		
-//		JButton fundo = new JButton("Fundo");
-//		panel.add(fundo, new GBC(1, 2));
-//		add(panel,new GBC(0,2).right());
-//		
-//		setSize(500, 120);
-//		setVisible(true);
-//
-//		add(panel, new GBC(0, 1));
-//		
-//		fundo.addActionListener(new ActionListener() {
-//			
-//			@Override
-//			public void actionPerformed(ActionEvent e) {
-//				tabela = new JTable(dados,colunas);
-//				
-//			}
-//		});
-//
-//	}
-	
-	
 	private void buildInvestimento() {
 
 		JPanel panel = new JPanel(new GridBagLayout());
-		JButton voltar = new JButton("Sair");
+		JButton voltar = new JButton("Voltar");
 		panel.add(voltar, new GBC(2,5));
 		add(panel,new GBC(0,5).right());
 		voltar.addActionListener(new ActionListener() {
@@ -164,19 +118,17 @@ public class InvestimentoFinanca extends JFrame {
 
 		});
 
-		JButton next = new JButton("Próximo");
-		panel.add(next,new GBC(3, 5));
+		JButton back = new JButton("Anterior");
+		panel.add(back,new GBC(3, 5));
 		add(panel,new GBC(0, 5).right());
-		next.addActionListener(new ActionListener() {
+		back.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				dispose();
-				new NovaTabela(null);
-				
+				new InvestimentoFinanca(null);
 			}
 		});
 		
 	}
-
-}
+ }
