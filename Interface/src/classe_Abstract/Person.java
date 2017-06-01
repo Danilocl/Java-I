@@ -8,6 +8,7 @@ public abstract class Person {
 		super();
 		this.nome = nome;
 	}
+	public abstract void chuchu();
 
 	public String getNome() {
 		return nome;
