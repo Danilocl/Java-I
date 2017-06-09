@@ -22,9 +22,12 @@ public class Teste {
 		/*
 		 * Empilha randomicamente 5 veses
 		 */
-		for (int i = 0; i < 5; i++) {
-			stack.push(rand.nextInt(10));
-		}
+//		for (int i = 0; i < 5; i++) {
+//			stack.push(rand.nextInt(10));
+//		}
+		stack.push(5);
+		stack.push(6);
+		stack.push(7);
 		/*
 		 * Imprimi os métodos
 		 */
@@ -37,12 +40,17 @@ public class Teste {
 
 		System.out.println("Pop: " + stack.pop());
 		System.out.println("Pop: " + stack.pop());
-		System.out.println("Pop: " + stack.pop());
-		System.out.println("Pop: " + stack.pop());
+		
+		
+		
 
 		System.out.println("\n");
+		
+		System.out.println(stack.toString());
 
 		System.out.println("Peek: " + stack.peek());
+		
+		
 
 	}
 }

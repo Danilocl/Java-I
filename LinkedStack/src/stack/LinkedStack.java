@@ -2,6 +2,13 @@ package stack;
 
 import java.util.NoSuchElementException;
 
+/**
+ * Lista que irá implementa o conceito de pilha adicionado e remove no início
+ * LIFO - ultimo a entrar, primeiro a sair.
+ * 
+ * @author Danilo
+ *
+ */
 public class LinkedStack {
 
 	private Node top;
