@@ -18,6 +18,7 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 
+import db.ClientDao;
 import model.Client;
 
 /**
@@ -176,7 +177,8 @@ public class MainFrame extends JFrame {
 	 * @param client Cliente.
 	 */
 	public void addClient(Client client) {
-		ClientTableModel model = (ClientTableModel) table.getModel();
+		ClientTableModel model = (ClientTableModel) table.getModel();		
+		ClientDao.insert(client);
 		model.addClient(client);
 	}
 	
@@ -189,6 +191,7 @@ public class MainFrame extends JFrame {
 	public void updateClient(Client client, int selectedRow) {
 		ClientTableModel model = (ClientTableModel) table.getModel();
 		model.updateClient(client, selectedRow);
+		
 	}
 	
 	/**
